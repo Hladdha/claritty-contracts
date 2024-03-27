@@ -1,0 +1,29 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - requirement-publish:
+            contract-id: SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard
+            remap-sender: ST3K2RH94YANPZ7CVHVP8K78X4V8GH0Y9C7ZV6K2R
+            remap-principals:
+              SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE: ST3K2RH94YANPZ7CVHVP8K78X4V8GH0Y9C7ZV6K2R
+            cost: 8400
+            path: "./.cache/requirements/SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8QJ5SVTE.sip-010-trait-ft-standard.clar"
+            clarity-version: 1
+      epoch: "2.0"
+    - id: 1
+      transactions:
+        - contract-publish:
+            contract-name: ERC20
+            expected-sender: ST3K2RH94YANPZ7CVHVP8K78X4V8GH0Y9C7ZV6K2R
+            cost: 10750
+            path: contracts/ERC20.clar
+            anchor-block-only: true
+            clarity-version: 2
+      epoch: "2.4"
